@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public int hp = 100;
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
+    public GameObject ui;
 
 
     void Start()
@@ -38,6 +39,8 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
+            Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y);
+            transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
 
         }
     }
