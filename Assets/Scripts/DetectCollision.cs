@@ -23,7 +23,7 @@ public class DetectCollision : MonoBehaviour
         
     }
     void OnTriggerEnter2D(Collider2D other) {
-        if (gameObject.CompareTag("Collectable"))
+        if(gameObject.CompareTag("Collectable"))
         {
             if(other.gameObject.CompareTag("Player"))
             {
@@ -31,7 +31,13 @@ public class DetectCollision : MonoBehaviour
                 gameManager.SendMessageLog("Collectable collected. +1 point\n");
                 gameManager.AddPoint();
                 gameManager.SpawnCollectable();
-                playerController.hp = 200;
+            }
+        }
+        else if(gameObject.CompareTag("Enemy"))
+        {
+            if(other.gameObject.CompareTag("Player"))
+            {
+                playerController.ChangeHp(-10);
             }
         }
     }

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int hp = 100;
+    public int maxHp = 100;
+    public int currentHp = 100;
     public int attack = 10;
-    public int movementSpeed = 40;
+    public PlayerMovement playerMovement;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +18,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
+    }
+    public void GameOver()
+    {
+        playerMovement.canMove = false;
+    }
+    
+    public void ChangeHp(int hp)
+    {
+        currentHp += hp;
+        if(currentHp <= 0)
+        {
+            GameOver();
+        }
     }
 }
