@@ -5,7 +5,9 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject player;
     public GameObject collectable;
+    public GameObject enemy;
     public PlayerMovement playerMovement;
     public int points;
     public TextMeshProUGUI pointsUI;
@@ -14,7 +16,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemy();
+        SpawnCollectable();
+        StartCoroutine(SpawnEnemyCoroutine());
         points = 0;
         pointsUI.text = "Points: " + points;
     }
@@ -28,11 +31,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SpawnEnemy()
+    public void SpawnCollectable()
     {
-        Vector3 spawnPosition = new Vector2(Random.Range(-playerMovement.boundX, playerMovement.boundX), Random.Range(-playerMovement.boundY, playerMovement.boundY));
+        Vector2 spawnPosition = new Vector2(Random.Range(-playerMovement.boundX, playerMovement.boundX), Random.Range(-playerMovement.boundY, playerMovement.boundY));
         Instantiate(collectable, spawnPosition, collectable.transform.rotation);
-        Debug.Log("Spawned");
+        Debug.Log("Collectable spawned");
     }
 
     public void AddPoint()
@@ -71,5 +74,23 @@ public class GameManager : MonoBehaviour
     public void SendMessageLog(string message)
     {
         StartCoroutine(SendMessageLogCoroutine(message));
+    }
+
+    IEnumerator SpawnEnemyCoroutine()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(5);
+            Vector2 spawnPosition = new Vector2(Random.Range(-playerMovement.boundX, playerMovement.boundX), Random.Range(-playerMovement.boundY, playerMovement.boundY));
+            float distance = Vector2.Distance(player.transform.position,spawnPosition);
+            while(distance <= 10.0f)
+            {
+                spawnPosition = new Vector2(Random.Range(-playerMovement.boundX, playerMovement.boundX), Random.Range(-playerMovement.boundY, playerMovement.boundY));
+                distance = Vector2.Distance(player.transform.position,spawnPosition);
+            }
+            Instantiate(enemy, spawnPosition, enemy.transform.rotation);
+            Debug.Log("Enemy spawned");
+            Debug.Log(distance);
+        }
     }
 }

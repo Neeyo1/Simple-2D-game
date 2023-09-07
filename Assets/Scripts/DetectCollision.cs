@@ -30,7 +30,7 @@ public class DetectCollision : MonoBehaviour
                 Destroy(gameObject);
                 gameManager.SendMessageLog("Collectable collected. +1 point\n");
                 gameManager.AddPoint();
-                gameManager.SpawnEnemy();
+                gameManager.SpawnCollectable();
                 playerController.hp = 200;
             }
         }

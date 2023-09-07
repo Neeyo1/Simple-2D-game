@@ -235,7 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd54edc4e9dc9af43a6956bda16310e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1408160687}
   collectable: {fileID: 6017740244052470705, guid: ed838e1185fafda47a9dc3c172cbe816, type: 3}
+  enemy: {fileID: 6017740244052470705, guid: 3cef0c8689cc6384ca4c657ec9687e86, type: 3}
   playerMovement: {fileID: 1408160690}
   points: 0
   pointsUI: {fileID: 1394575546}
@@ -941,7 +943,6 @@ GameObject:
   - component: {fileID: 1408160690}
   - component: {fileID: 1408160692}
   - component: {fileID: 1408160691}
-  - component: {fileID: 1408160693}
   - component: {fileID: 1408160694}
   m_Layer: 0
   m_Name: Player
@@ -1111,18 +1112,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1408160693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408160687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa09be5c58f3904f877f1144a284673, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1408160694
 MonoBehaviour:
   m_ObjectHideFlags: 0
