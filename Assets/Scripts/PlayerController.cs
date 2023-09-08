@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int maxHp = 100;
-    public int currentHp = 100;
-    public int attack = 10;
+    public float maxHp = 100.0f;
+    public float currentHp = 100.0f;
+    public float attack = 10.0f;
     public PlayerMovement playerMovement;
     public GameObject projectile;
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         playerMovement.canMove = false;
     }
     
-    public void ChangeHp(int hp)
+    public void ChangeHp(float hp)
     {
         currentHp += hp;
         if(currentHp <= 0)

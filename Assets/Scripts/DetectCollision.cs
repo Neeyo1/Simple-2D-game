@@ -37,7 +37,12 @@ public class DetectCollision : MonoBehaviour
         {
             if(other.gameObject.CompareTag("Player"))
             {
-                playerController.ChangeHp(-10);
+                playerController.ChangeHp(-10.0f);
+            }
+            else if(other.gameObject.CompareTag("Projectile"))
+            {
+                Debug.Log("Hit");
+                gameObject.GetComponent<EnemyController>().ChangeHp(-10.0f);
             }
         }
     }

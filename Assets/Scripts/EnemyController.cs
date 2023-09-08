@@ -8,15 +8,21 @@ public class EnemyController : MonoBehaviour
     private GameObject player;
     private float latestDirectionChangeTime;
     private float directionChangeTime = 3f;
-    public int speed = 2;
-    public int hp = 100;
+    public float speed = 2.0f;
+    public float maxXp = 100.0f;
+    public float currentHp;
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
     public GameObject ui;
+    public GameObject hpBar;
+    public float hpBarOriginalSize;
+    public float hpBarOffset = 0.0f;
 
 
     void Start()
     {
+        currentHp = maxXp;
+        hpBarOriginalSize = hpBar.transform.localScale.x;
         player = GameObject.Find("Player");
         latestDirectionChangeTime = 0f;
         calcuateNewMovementVector();
@@ -50,5 +56,24 @@ public class EnemyController : MonoBehaviour
     //create a random direction vector with the magnitude of 1, later multiply it with the velocity of the enemy
         movementDirection = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
         movementPerSecond = movementDirection * speed;
+    }
+
+    public void ChangeHp(float hp)
+    {
+        currentHp += hp;
+        ChangeHpBar();
+        if(currentHp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void ChangeHpBar()
+    {
+        hpBar.transform.localScale = new Vector2(currentHp / maxXp * hpBarOriginalSize, 0.25f);
+        Debug.Log(hpBarOriginalSize - (currentHp / maxXp * hpBarOriginalSize));
+        Debug.Log((hpBarOriginalSize - (currentHp / maxXp * hpBarOriginalSize))/2.0f);
+        hpBar.transform.position -= new Vector3((hpBarOriginalSize - (currentHp / maxXp * hpBarOriginalSize))/2.0f - hpBarOffset, 0, 0);
+        hpBarOffset = (hpBarOriginalSize - (currentHp / maxXp * hpBarOriginalSize))/2.0f;
     }
 }

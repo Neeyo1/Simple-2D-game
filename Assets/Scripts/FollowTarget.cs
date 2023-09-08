@@ -15,8 +15,15 @@ public class FollowTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 targetPosition = new Vector2(target.transform.position.x, target.transform.position.y);
+        if(target == null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Vector2 targetPosition = new Vector2(target.transform.position.x, target.transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        }
     }
 
     public void SetTarget(GameObject targetToSet)
