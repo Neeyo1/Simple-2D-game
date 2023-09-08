@@ -71,8 +71,6 @@ public class EnemyController : MonoBehaviour
     public void ChangeHpBar()
     {
         hpBar.transform.localScale = new Vector2(currentHp / maxXp * hpBarOriginalSize, 0.25f);
-        Debug.Log(hpBarOriginalSize - (currentHp / maxXp * hpBarOriginalSize));
-        Debug.Log((hpBarOriginalSize - (currentHp / maxXp * hpBarOriginalSize))/2.0f);
         hpBar.transform.position -= new Vector3((hpBarOriginalSize - (currentHp / maxXp * hpBarOriginalSize))/2.0f - hpBarOffset, 0, 0);
         hpBarOffset = (hpBarOriginalSize - (currentHp / maxXp * hpBarOriginalSize))/2.0f;
     }
