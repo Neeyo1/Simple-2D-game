@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowTarget : MonoBehaviour
 {
     public float speed = 15.0f;
-    private GameObject target;
+    public GameObject target;
     // Start is called before the first frame update
     void Start()
     {
