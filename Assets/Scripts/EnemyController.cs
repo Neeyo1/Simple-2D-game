@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     public GameObject hpBar;
     public float hpBarOriginalSize;
     public float hpBarOffset = 0.0f;
+    public bool isBeingAttacked = false;
 
 
     void Start()

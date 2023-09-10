@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6814621aeb308af4fa0b711a7002a4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  attackTarget: {fileID: 0}
 --- !u!1 &1099553791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1036,7 @@ GameObject:
   - component: {fileID: 1408160692}
   - component: {fileID: 1408160691}
   - component: {fileID: 1408160694}
+  - component: {fileID: 1408160695}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1220,6 +1221,18 @@ MonoBehaviour:
   currentHp: 100
   attack: 10
   playerMovement: {fileID: 1408160690}
+--- !u!114 &1408160695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408160687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9561be40321fc7a4484f03ad4ac5bd92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   projectile: {fileID: 8226617259695660603, guid: cf41c7847c2a9364ab9d2e83e43d763e, type: 3}
 --- !u!1 &1413665694
 GameObject:

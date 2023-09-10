@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         Vector2 spawnPosition = new Vector2(Random.Range(-playerMovement.boundX, playerMovement.boundX), Random.Range(-playerMovement.boundY, playerMovement.boundY));
         Instantiate(collectable, spawnPosition, collectable.transform.rotation);
-        Debug.Log("Collectable spawned");
+        //Debug.Log("Collectable spawned");
     }
 
     public void AddPoint()
@@ -89,8 +89,8 @@ public class GameManager : MonoBehaviour
                 distance = Vector2.Distance(player.transform.position,spawnPosition);
             }
             Instantiate(enemy, spawnPosition, enemy.transform.rotation);
-            Debug.Log("Enemy spawned");
-            Debug.Log(distance);
+            //Debug.Log("Enemy spawned");
+            //Debug.Log(distance);
         }
     }
 }

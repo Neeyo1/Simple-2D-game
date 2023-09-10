@@ -5,12 +5,12 @@ public class InputHandler : MonoBehaviour
 {
     private Camera _mainCamera;
     private GameObject lastEnemyMarked;
-    public PlayerController playerController;
+    public AttackTarget attackTarget;
 
     private void Awake()
     {
         _mainCamera = Camera.main;
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        attackTarget = GameObject.Find("Player").GetComponent<AttackTarget>();
     }
 
     public void OnClick(InputAction.CallbackContext context)
@@ -28,13 +28,17 @@ public class InputHandler : MonoBehaviour
             {
                 if(lastEnemyMarked == rayHit.collider.gameObject)
                 {
-                    playerController.AttackEnemy(lastEnemyMarked);
+                    attackTarget.Attack(lastEnemyMarked);
                 }
                 else
                 {
                     lastEnemyMarked.GetComponent<EnemyController>().ui.SetActive(false);
                     EnemyController enemyController = rayHit.collider.gameObject.GetComponent<EnemyController>();
                     enemyController.ui.SetActive(true);
+                    if(lastEnemyMarked.GetComponent<EnemyController>().isBeingAttacked == true)
+                    {
+                        lastEnemyMarked.GetComponent<EnemyController>().isBeingAttacked = false;
+                    }
                     lastEnemyMarked = rayHit.collider.gameObject;
                 }
             }
