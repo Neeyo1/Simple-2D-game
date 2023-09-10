@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     public float hpBarOriginalSize;
     public float hpBarOffset = 0.0f;
     public bool isBeingAttacked = false;
+    public bool isAttacking = false;
 
 
     void Start()
@@ -48,7 +49,10 @@ public class EnemyController : MonoBehaviour
         {
             Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
-
+            if(isAttacking == false)
+            {
+                gameObject.GetComponent<AttackTarget>().Attack(player);
+            }
         }
     }
 

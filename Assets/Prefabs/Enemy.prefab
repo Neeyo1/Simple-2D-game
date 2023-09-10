@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 799819035285671542}
   - component: {fileID: 7926595892178950527}
   - component: {fileID: 172460317844005376}
+  - component: {fileID: 6704787687214141404}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -477,3 +478,18 @@ MonoBehaviour:
   ui: {fileID: 6005217581590583342}
   hpBar: {fileID: 4019862800846006295}
   hpBarOriginalSize: 0
+  hpBarOffset: 0
+  isBeingAttacked: 0
+--- !u!114 &6704787687214141404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017740244052470705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9561be40321fc7a4484f03ad4ac5bd92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 8226617259695660603, guid: cf41c7847c2a9364ab9d2e83e43d763e, type: 3}
