@@ -19,10 +19,12 @@ public class EnemyController : MonoBehaviour
     public float hpBarOffset = 0.0f;
     public bool isBeingAttacked = false;
     public bool isAttacking = false;
+    private GameManager gameManager;
 
 
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentHp = maxXp;
         hpBarOriginalSize = hpBar.transform.localScale.x;
         player = GameObject.Find("Player");
@@ -69,6 +71,7 @@ public class EnemyController : MonoBehaviour
         ChangeHpBar();
         if(currentHp <= 0)
         {
+            gameManager.SendMessageLog(gameObject.name + " destroyed\n");
             Destroy(gameObject);
         }
     }
