@@ -31,7 +31,7 @@ public class AttackTarget : MonoBehaviour
                 {
                     GameObject projectileObject = Instantiate(projectile, transform.position, projectile.transform.rotation);
                     FollowTarget followTarget = projectileObject.GetComponent<FollowTarget>();
-                    followTarget.SetTarget(target);
+                    followTarget.SetTargetAndSource(target, gameObject);
                     yield return new WaitForSeconds(1);
                 }
                 else
@@ -48,7 +48,7 @@ public class AttackTarget : MonoBehaviour
                 {
                     GameObject projectileObject = Instantiate(projectile, transform.position, projectile.transform.rotation);
                     FollowTarget followTarget = projectileObject.GetComponent<FollowTarget>();
-                    followTarget.SetTarget(target);
+                    followTarget.SetTargetAndSource(target, gameObject);
                     yield return new WaitForSeconds(1);
                 }
                 else

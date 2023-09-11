@@ -39,12 +39,23 @@ public class DetectCollision : MonoBehaviour
             {
                 playerController.ChangeHp(-10.0f);
             }
-            else if(other.gameObject.CompareTag("Projectile"))
+        }
+        else if(gameObject.CompareTag("Projectile"))
+        {
+            if(other.gameObject.CompareTag("Player"))
             {
-                if(gameObject == other.gameObject.GetComponent<FollowTarget>().target)
+                if(other.gameObject != gameObject.GetComponent<FollowTarget>().source)
                 {
-                    Destroy(other.gameObject);
-                    gameObject.GetComponent<EnemyController>().ChangeHp(-10.0f);
+                    Destroy(gameObject);
+                    playerController.ChangeHp(-10.0f);
+                }
+            }
+            else if(other.gameObject.CompareTag("Enemy"))
+            {
+                if(other.gameObject != gameObject.GetComponent<FollowTarget>().source)
+                {
+                    Destroy(gameObject);
+                    other.gameObject.GetComponent<EnemyController>().ChangeHp(-10.0f);
                 }
             }
         }

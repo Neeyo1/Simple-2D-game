@@ -6,10 +6,11 @@ public class FollowTarget : MonoBehaviour
 {
     public float speed = 15.0f;
     public GameObject target;
+    public GameObject source;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,8 +27,9 @@ public class FollowTarget : MonoBehaviour
         }
     }
 
-    public void SetTarget(GameObject targetToSet)
+    public void SetTargetAndSource(GameObject targetToSet, GameObject sourceToSet)
     {
         target = targetToSet;
+        source = sourceToSet;
     }
 }
