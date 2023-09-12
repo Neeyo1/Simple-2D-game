@@ -41,9 +41,9 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Collectable spawned");
     }
 
-    public void AddPoint()
+    public void AddPoint(int pointsToAdd = 1)
     {
-        points += 1;
+        points += pointsToAdd;
         pointsUI.text = "Points: " + points;
     }
 

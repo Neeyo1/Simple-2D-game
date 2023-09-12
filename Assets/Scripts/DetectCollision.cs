@@ -33,6 +33,16 @@ public class DetectCollision : MonoBehaviour
                 gameManager.SpawnCollectable();
             }
         }
+        else if(gameObject.CompareTag("Drop"))
+        {
+            if(other.gameObject.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+                //WILL BE COUNTED INTO PLAYER RESOURCES STORAGE TO SELL IN THE FUTURE
+                gameManager.SendMessageLog("Drop collected. +10 point\n");
+                gameManager.AddPoint(10);
+            }
+        }
         else if(gameObject.CompareTag("Enemy"))
         {
             if(other.gameObject.CompareTag("Player"))

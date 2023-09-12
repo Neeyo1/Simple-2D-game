@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     public bool isBeingAttacked = false;
     public bool isAttacking = false;
     private GameManager gameManager;
+    public GameObject drop;
 
 
     void Start()
@@ -72,6 +73,7 @@ public class EnemyController : MonoBehaviour
         if(currentHp <= 0)
         {
             gameManager.SendMessageLog(gameObject.name + " destroyed\n");
+            Instantiate(drop, transform.position, drop.transform.rotation);
             Destroy(gameObject);
         }
     }

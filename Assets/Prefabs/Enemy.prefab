@@ -481,6 +481,7 @@ MonoBehaviour:
   hpBarOffset: 0
   isBeingAttacked: 0
   isAttacking: 0
+  drop: {fileID: 6017740244052470705, guid: 97aece73f6b96df4eb1e6e1c799858a2, type: 3}
 --- !u!114 &6704787687214141404
 MonoBehaviour:
   m_ObjectHideFlags: 0
