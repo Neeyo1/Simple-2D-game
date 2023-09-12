@@ -37,10 +37,17 @@ public class DetectCollision : MonoBehaviour
         {
             if(other.gameObject.CompareTag("Player"))
             {
-                Destroy(gameObject);
-                //WILL BE COUNTED INTO PLAYER RESOURCES STORAGE TO SELL IN THE FUTURE
-                gameManager.SendMessageLog("Drop collected. +10 point\n");
-                gameManager.AddPoint(10);
+                float storageLeft = playerController.maxStorage - playerController.currentStorage;
+                if(storageLeft >= 250.0f)
+                {
+                    Destroy(gameObject);
+                    gameManager.SendMessageLog("Drop collected. +250 storage\n");
+                    playerController.ChangeStorage(250.0f);
+                }
+                else
+                {
+                    gameManager.SendMessageLog("Could not pick up drop, no enough empty space\n");
+                }
             }
         }
         else if(gameObject.CompareTag("Enemy"))

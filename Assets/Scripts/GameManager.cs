@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI pointsUI;
     public TextMeshProUGUI messageUI;
     public TextMeshProUGUI hpUI;
+    public TextMeshProUGUI storageUI;
     public GameObject map;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnEnemyCoroutine());
         points = 0;
         UpdateHpUI();
+        UpdateStorageUI();
     }
 
     // Update is called once per frame
@@ -49,8 +51,12 @@ public class GameManager : MonoBehaviour
 
     public void UpdateHpUI()
     {
-        pointsUI.text = "Points: " + points;
         hpUI.text = "HP: " + playerController.currentHp + "/" + playerController.maxHp;
+    }
+
+    public void UpdateStorageUI()
+    {
+        storageUI.text = "Storage: " + playerController.currentStorage + "/" + playerController.maxStorage;
     }
 
     IEnumerator SendMessageLogCoroutine(string message)
