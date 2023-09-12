@@ -52,7 +52,7 @@ public class DetectCollision : MonoBehaviour
             }
             else if(other.gameObject.CompareTag("Enemy"))
             {
-                if(other.gameObject != gameObject.GetComponent<FollowTarget>().source)
+                if(other.gameObject.tag != gameObject.GetComponent<FollowTarget>().source.tag)
                 {
                     Destroy(gameObject);
                     other.gameObject.GetComponent<EnemyController>().ChangeHp(-10.0f);
