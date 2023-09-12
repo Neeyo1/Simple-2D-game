@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
         }
         
         float distanceToPlayer = Vector2.Distance(player.transform.position, new Vector2(transform.position.x, transform.position.y));
-        if(distanceToPlayer > 5f)
+        if(distanceToPlayer > 10.0f)
         {
             transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime),
                                              transform.position.y + (movementPerSecond.y * Time.deltaTime));
