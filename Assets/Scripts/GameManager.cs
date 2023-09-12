@@ -9,17 +9,20 @@ public class GameManager : MonoBehaviour
     public GameObject collectable;
     public GameObject enemy;
     public PlayerMovement playerMovement;
+    private PlayerController playerController;
     public int points;
     public TextMeshProUGUI pointsUI;
     public TextMeshProUGUI messageUI;
+    public TextMeshProUGUI hpUI;
     public GameObject map;
     // Start is called before the first frame update
     void Start()
     {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         SpawnCollectable();
         StartCoroutine(SpawnEnemyCoroutine());
         points = 0;
-        pointsUI.text = "Points: " + points;
+        UpdateHpUI();
     }
 
     // Update is called once per frame
@@ -42,6 +45,12 @@ public class GameManager : MonoBehaviour
     {
         points += 1;
         pointsUI.text = "Points: " + points;
+    }
+
+    public void UpdateHpUI()
+    {
+        pointsUI.text = "Points: " + points;
+        hpUI.text = "HP: " + playerController.currentHp + "/" + playerController.maxHp;
     }
 
     IEnumerator SendMessageLogCoroutine(string message)

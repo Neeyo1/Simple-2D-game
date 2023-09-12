@@ -480,6 +480,7 @@ MonoBehaviour:
   hpBarOriginalSize: 0
   hpBarOffset: 0
   isBeingAttacked: 0
+  isAttacking: 0
 --- !u!114 &6704787687214141404
 MonoBehaviour:
   m_ObjectHideFlags: 0

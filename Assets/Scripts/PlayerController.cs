@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
     public float currentHp = 100.0f;
     public float attack = 10.0f;
     public PlayerMovement playerMovement;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public void ChangeHp(float hp)
     {
         currentHp += hp;
+        gameManager.UpdateHpUI();
         if(currentHp <= 0)
         {
             GameOver();
